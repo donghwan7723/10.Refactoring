@@ -33,27 +33,28 @@
 	$(function() {
 
 		
-			 $(".manage").on("click",function(){
+			$(".manage").bind("click",function(){
 				 var prodNo =  $(this).data("param1");
 			
 				 self.location="/product/updateProductView?prodNo="+prodNo+"&menu=manage"				 
-			 });
+			});
 			
-			 //getProduct 실행
-			 $(".trancode").on("click",function(){
+			//getProduct 실행
+			$(".trancode").bind("click",function(){
 				 var prodNo = $(this).data("param2");
 				 console.log(prodNo);
 				 self.location="/product/getProduct?prodNo="+prodNo+"&menu=search"
-			 });
-		
-			 $("#transfer").on("click",function(){
+			});
+			
+			//배송하기 event
+			$("#transfer").bind("click",function(){
 				 var prodNo = $(this).data("param3");
 				 self.location="/purchase/updateTranCodeByProd?prodNo="+prodNo+"&tranCode=2"
-			 });
+			});
 			 
-			 $(".searchfor").on("click",function(){
+			$(".searchfor").bind("click",function(){
 				 self.location = "javascript:fncGetList('1')";
-			 })
+			})
 			 
 			//리스트 색상 입히기
 			$(".ct_list_pop:nth-child(4n+6)" ).css("background-color" , "whitesmoke");
@@ -64,12 +65,6 @@
 
 	});	
 
-	
-	
-	
-	
-	
-	
 
 		
 </script>

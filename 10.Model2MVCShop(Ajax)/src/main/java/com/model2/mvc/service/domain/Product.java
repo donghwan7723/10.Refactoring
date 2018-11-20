@@ -13,10 +13,26 @@ public class Product {
 	private int prodNo;
 	private Date regDate;
 	private String proTranCode;
+	private int count;//Àç°í
+	private String proBrand;
 	
 	public Product(){
 	}
 	
+	
+	
+	public String getProBrand() {
+		return proBrand;
+	}
+	public void setProBrand(String proBrand) {
+		this.proBrand = proBrand;
+	}
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
 	public String getProTranCode() {
 		return proTranCode;
 	}
@@ -66,10 +82,11 @@ public class Product {
 		this.regDate = regDate;
 	}
 
-	// Override
+	@Override
 	public String toString() {
-		return "ProductVO : [fileName]" + fileName
-				+ "[manuDate]" + manuDate+ "[price]" + price + "[prodDetail]" + prodDetail
-				+ "[prodName]" + prodName + "[prodNo]" + prodNo;
-	}	
+		return "Product [fileName=" + fileName + ", manuDate=" + manuDate + ", price=" + price + ", prodDetail="
+				+ prodDetail + ", prodName=" + prodName + ", prodNo=" + prodNo + ", regDate=" + regDate
+				+ ", proTranCode=" + proTranCode + ", count=" + count + ", proBrand=" + proBrand + "]";
+	}
+
 }

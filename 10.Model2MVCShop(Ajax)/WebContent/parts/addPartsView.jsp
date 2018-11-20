@@ -11,7 +11,7 @@
 
 <script type="text/javascript">
 
-function fncAddProduct(){
+/* function fncAddProduct(){
 	//Form 유효성 검증
  	//var name = document.detailForm.prodName.value;
 	//var detail = document.detailForm.prodDetail.value;
@@ -42,20 +42,18 @@ function fncAddProduct(){
 		return;
 	}
 
-}
-<%--	document.detailForm.action='/product/addProduct';
-document.detailForm.submit();		--%>
+} */
 
 	$(function(){
 		
 		//등록 event
 		$("td.ct_btn01:contains('등록')").bind('click', function(){
-			$("form").attr("method","POST").attr("action", "/product/addProduct").submit();
+			$("form").attr("method","POST").attr("action", "/parts/addParts").submit();
 		});		
 		
 		//취소 event
 		$(".ct_btn01:contains('취소')").bind('click', function(){
-			$("form").attr("method","POST").attr("action", "/product/listProduct").submit();
+			history.go(-1);
 		});
 
 	});
@@ -99,14 +97,14 @@ function resetData(){
 	</tr>
 	<tr>
 		<td width="104" class="ct_write">
-			상품명 <imgsrc="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle">
+			부품명 <imgsrc="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle">
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td width="105">
-						<input type="text" name="prodName" class="ct_input_g" 
+						<input type="text" name="partName" class="ct_input_g" 
 									style="width: 100px; height: 19px" maxLength="20">
 					</td>
 				</tr>
@@ -114,33 +112,15 @@ function resetData(){
 		</td>
 	</tr>
 	<tr>
-		<td width="104" class="ct_write">
-			브랜드 <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
-		</td>
-		<td bgcolor="D6D6D6" width="1"></td>
-		<td class="ct_write01">
-			<select name="proBrand" class="ct_input_g" style="width: 100px; height: 19px" maxLength="10">
-				<option value="" selected>브랜드선택</option>
-				<option value="람보르기니">람보르기니</option>
-				<option value="부가티">부가티</option>
-				<option value="포르쉐">포르쉐</option>
-				<option value="폭스바겐">폭스바겐</option>	
-				<option value="현대자동차">현대자동차</option>	
-				<option value="기아자동차" >기아자동차</option>	
-				<option value="쉐보레">쉐보레</option>	
-			</select>
-		</td>
-	</tr>
-	<tr>
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 	</tr>
 	<tr>
 		<td width="104" class="ct_write">
-			상품상세정보 <img	src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
+			브랜드 <img	src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
-			<input type="text" name="prodDetail" class="ct_input_g" 
+			<input type="text" name="brand" class="ct_input_g" 
 						style="width: 100px; height: 19px" maxLength="10" minLength="6"/>
 		</td>
 	</tr>
@@ -149,13 +129,28 @@ function resetData(){
 	</tr>
 	<tr>
 		<td width="104" class="ct_write">
-			제조일자 <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
+			재고수량 <img	src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
-			<input type="text" name="manuDate" readonly="readonly" class="ct_input_g" style="width: 100px; height: 19px" maxLength="10" minLength="6" />
-				&nbsp;<img src="../images/ct_icon_date.gif" width="15" height="15" 
-				onclick="show_calendar('document.detailForm.manuDate', document.detailForm.manuDate.value)" />
+			<input type="text" name="partCode" class="ct_input_g" 
+						style="width: 100px; height: 19px" maxLength="10" minLength="6"/>
+		</td>
+	</tr>
+	<tr>
+		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+	</tr>
+	<tr>
+		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+	</tr>
+	<tr>
+		<td width="104" class="ct_write">
+			차량호환코드<img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
+		</td>
+		<td bgcolor="D6D6D6" width="1"></td>
+		<td class="ct_write01">
+			<input type="text" name="prodNo" 	class="ct_input_g" 
+						style="width: 100px; height: 19px" maxLength="10">
 		</td>
 	</tr>
 	<tr>
@@ -167,8 +162,21 @@ function resetData(){
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
-			<input type="text" name="price" 	class="ct_input_g" 
+			<input type="text" name="partPrice" 	class="ct_input_g" 
 						style="width: 100px; height: 19px" maxLength="10">&nbsp;원
+		</td>
+	</tr>
+	<tr>
+		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+	</tr>
+	<tr>
+		<td width="104" class="ct_write">
+			재고 <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
+		</td>
+		<td bgcolor="D6D6D6" width="1"></td>
+		<td class="ct_write01">
+			<input type="text" name="partPrice" 	class="ct_input_g" 
+						style="width: 100px; height: 19px" maxLength="10">
 		</td>
 	</tr>
 	<tr>
@@ -182,22 +190,7 @@ function resetData(){
 							style="width: 200px; height: 19px" maxLength="13"/>
 		</td>
 	</tr>
-	<tr>
-		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
-	</tr>
-	<tr>
-		<td width="104" class="ct_write">
-			재고 <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
-		</td>
-		<td bgcolor="D6D6D6" width="1"></td>
-		<td class="ct_write01">
-			<input type="text" name="count" 	class="ct_input_g" 
-						style="width: 100px; height: 19px" maxLength="10">
-		</td>
-	</tr>
-	<tr>
-		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
-	</tr>
+
 </table>
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0"	style="margin-top: 10px;">

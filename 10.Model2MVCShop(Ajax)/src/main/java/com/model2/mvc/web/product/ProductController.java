@@ -43,7 +43,8 @@ public class ProductController{
 	
 	@RequestMapping(value = "addProduct", method=RequestMethod.POST)
 	public String addProduct (@ModelAttribute("product") Product product) throws Exception {
-	
+				
+		System.out.println(product);
 		System.out.println("¿©±â´Â productController addProduct");
 		//Business Logic
 		productService.addProduct(product);

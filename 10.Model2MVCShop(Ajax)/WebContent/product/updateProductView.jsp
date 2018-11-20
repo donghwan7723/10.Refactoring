@@ -22,10 +22,10 @@
 
 function fncAddProduct(){
 	//Form 유효성 검증
- 	var name = $("input[name='prodName']").val();
+  	var name = $("input[name='prodName']").val();
  	var detail=$("input[name='prodDetail']").val();
-	var manuDate=$("input['name=manuDate']").val();
-	var price=$("input['name=price']").val();
+	var manuDate=$("input[name='manuDate']").val();
+	var price=$("input[name='price']").val();
 
 	if(name == null || name.length<1){
 		alert("상품명은 반드시 입력하여야 합니다.");
@@ -42,9 +42,9 @@ function fncAddProduct(){
 	if(price == null || price.length<1){
 		alert("가격은 반드시 입력하셔야 합니다.");
 		return;
-	}
+	} 
 		
-	$("form").attr("method","POST").attr("action", "/product/addProduct").submit();
+	$("form").attr("method","POST").attr("action", "/product/updateProduct?menu=manage").submit();
 /* 	document.detailForm.action='/product/updateProduct?menu=manage';
 	document.detailForm.submit(); */
 }
@@ -115,6 +115,26 @@ function fncAddProduct(){
 	</tr>
 	<tr>
 		<td width="104" class="ct_write">
+			브랜드 <img	src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
+		</td>
+		<td bgcolor="D6D6D6" width="1"></td>
+		<td class="ct_write01">
+			<select name="proBrand" class="ct_input_g" style="width: 100px; height: 19px" maxLength="10">
+				<option value="람보르기니" ${product.proBrand=='람보르기니'? 'selected' : ''}>람보르기니</option>
+				<option value="부가티" ${product.proBrand=='부가티'? 'selected' : ''}>부가티</option>
+				<option value="포르쉐" ${product.proBrand=='포르쉐'? 'selected' : ''}>포르쉐</option>
+				<option value="폭스바겐" ${product.proBrand=='폭스바겐'? 'selected' : ''}>폭스바겐</option>	
+				<option value="현대자동차" ${product.proBrand=='현대자동차'? 'selected' : ''}>현대자동차</option>	
+				<option value="기아자동차" ${product.proBrand=='기아자동차'? 'selected' : ''}>기아자동차</option>	
+				<option value="쉐보레" ${product.proBrand=='쉐보레'? 'selected' : ''}>쉐보레</option>	
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+	</tr>
+	<tr>
+		<td width="104" class="ct_write">
 			상품상세정보 <img	src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
@@ -126,6 +146,19 @@ function fncAddProduct(){
 	<tr>
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 	</tr>
+	<tr>
+		<td width="104" class="ct_write">
+			가격 <img	src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
+		</td>
+		<td bgcolor="D6D6D6" width="1"></td>
+		<td class="ct_write01">
+			<input type="text" name="price" value="${product.price}" class="ct_input_g" 
+						style="width: 100px; height: 19px" maxLength="10"	minLength="6">&nbsp;원
+		</td>
+	</tr>
+	<tr>
+		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+	</tr>	
 	<tr>
 		<td width="104" class="ct_write">
 			제조일자 <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
@@ -143,12 +176,12 @@ function fncAddProduct(){
 	</tr>
 	<tr>
 		<td width="104" class="ct_write">
-			가격 <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
+			재고 <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
-			<input type="text" name="price" value="${product.price}"
-						class="ct_input_g" style="width: 100px; height: 19px" maxLength="50"/>&nbsp;원
+			<input type="text" name="count" value="${product.count}"
+						class="ct_input_g" style="width: 100px; height: 19px" maxLength="50"/>&nbsp;EA
 		</td>
 	</tr>
 	<tr>

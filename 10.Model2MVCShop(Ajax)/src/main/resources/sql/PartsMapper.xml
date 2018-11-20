@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="PartsMapper">
+ 	
+ 	
+	<resultMap id="partsSelectMap" type="parts">
+		<result property="partCode" 			column="part_code" 			jdbcType="NUMERIC"/>
+		<result property="brand"				column="prod_brand" 		jdbcType="VARCHAR" />
+		<result property="partName" 			column="part_name" 			jdbcType="VARCHAR" />
+		<result property="prodNo" 				column="prod_no" 			jdbcType="NUMERIC" />
+		<result property="partPrice" 			column="part_price" 		jdbcType="NUMERIC" />
+		<result property="count"				column="COUNT"  			jdbcType="NUMERIC"/>
+		<result property="fileName"		     	column="IMAGE_FILE"  		jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<!-- SQL : INSERT -->
+	 <insert 	id="addParts"		parameterType="parts" >                       
+	 	INSERT  
+		INTO parts(part_code, brand, part_name, part_price, count, image_file) 
+		VALUES	 ( seq_parts_partsCode.nextval,  #{brand}, #{partName}, #{partPrice}  
+				   , #{count}, #{fileName})
+	 </insert>
+  
+ 
+</mapper>

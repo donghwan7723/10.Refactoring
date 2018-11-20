@@ -64,15 +64,15 @@
 								
 								if( JSONData != null ){
 									//[规过1]
-									//$(window.parent.document.location).attr("href","/index.jsp");
+									$(window.parent.document.location).attr("href","/index.jsp");
 									
 									//[规过2]
 									//window.parent.document.location.reload();
 									
 									//[规过3]
-									$(window.parent.frames["topFrame"].document.location).attr("href","/layout/top.jsp");
-									$(window.parent.frames["leftFrame"].document.location).attr("href","/layout/left.jsp");
-									$(window.parent.frames["rightFrame"].document.location).attr("href","/user/getUser?userId="+JSONData.userId);
+								//	$(window.parent.frames["topFrame"].document.location).attr("href","/layout/top.jsp");
+								//	$(window.parent.frames["leftFrame"].document.location).attr("href","/layout/left.jsp");
+								//	$(window.parent.frames["rightFrame"].document.location).attr("href","/user/getUser?userId="+JSONData.userId);
 									
 									//==> 规过 1 , 2 , 3 搬苞 切牢
 								}else{

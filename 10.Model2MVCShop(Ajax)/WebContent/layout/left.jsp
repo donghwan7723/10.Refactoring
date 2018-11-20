@@ -18,8 +18,9 @@
 	<script type="text/javascript">
 	
 		function history(){
-			popWin = window.open("/history.jsp", "popWin",
-					"left=300, top=200, width=300, height=200, marginwidth=0, marginheight=0, scrollbars=no, scrolling=no, menubar=no, resizable=no");
+			popWin = window.open("/history.jsp",
+														"popWin",
+														"left=300, top=200, width=300, height=200, marginwidth=0, marginheight=0, scrollbars=no, scrolling=no, menubar=no, resizable=no");
 		}
 	
 		//==> jQuery 적용 추가된 부분
@@ -48,6 +49,10 @@
 		 
 			$(".Depth03:contains('판매상품관리')" ).on("click", function(){
 				$(window.parent.frames["rightFrame"].document.location).attr("href", "/product/listProduct?menu=manage");
+			});
+			
+			$(".Depth03:contains('부품등록')").on("click",function(){
+				$(window.parent.frames["rightFrame"].document.location).attr("href", "/parts/addPartsView.jsp");
 			});
 		 		 		
 			$(".Depth03:contains('상 품 검 색')" ).on("click", function(){
@@ -117,6 +122,11 @@
 					판매상품등록
 					</td>
 				</tr>
+				<tr>
+					<td class="Depth03">
+					부품등록
+					</td>
+				</tr>				
 				<tr>
 					<td class="Depth03">
 					<!--  	<a href="/product/listProduct?menu=manage"  target="rightFrame">판매상품관리</a>-->
