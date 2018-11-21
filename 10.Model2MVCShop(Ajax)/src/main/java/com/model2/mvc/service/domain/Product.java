@@ -13,19 +13,19 @@ public class Product {
 	private int prodNo;
 	private Date regDate;
 	private String proTranCode;
-	private int count;//재고
-	private String proBrand;
+	private int count;			//재고
+	private Brand brandId;
 	
 	public Product(){
 	}
 	
 	
 	
-	public String getProBrand() {
-		return proBrand;
+	public Brand getBrandId() {
+		return brandId;
 	}
-	public void setProBrand(String proBrand) {
-		this.proBrand = proBrand;
+	public void setBrandId(Brand brandId) {
+		this.brandId = brandId;
 	}
 	public int getCount() {
 		return count;
@@ -86,7 +86,7 @@ public class Product {
 	public String toString() {
 		return "Product [fileName=" + fileName + ", manuDate=" + manuDate + ", price=" + price + ", prodDetail="
 				+ prodDetail + ", prodName=" + prodName + ", prodNo=" + prodNo + ", regDate=" + regDate
-				+ ", proTranCode=" + proTranCode + ", count=" + count + ", proBrand=" + proBrand + "]";
+				+ ", proTranCode=" + proTranCode + ", count=" + count + ", BrandId=" + brandId + "]";
 	}
 
 }

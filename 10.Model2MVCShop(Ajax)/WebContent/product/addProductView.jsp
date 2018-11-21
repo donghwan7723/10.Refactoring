@@ -1,3 +1,4 @@
+
 <%@ page contentType="text/html; charset=EUC-KR" %>
 
 <html>
@@ -18,11 +19,13 @@ function fncAddProduct(){
 	//var manuDate = document.detailForm.manuDate.value;
 	//var price = document.detailForm.price.value;
 
-	var name=$("input[name='prodName']").val();
-	var detail=$("input[name=prodDetail]").val();
-	var manuDate=$("input[name=manuDate]").val();
-	var price=$("input[name=price]").val();
 	
+	var name=$("input[name='prodName']").val();
+	var detail=$("input[name='prodDetail']").val();
+	var manuDate=$("input[name='manuDate']").val();
+	var price=$("input[name='price']").val();
+	var brand=$("#brand").val();
+	var count=$("$input[name='count']").val();
 	
 	if(name == null || name.length<1){
 		alert("상품명은 반드시 입력하여야 합니다.");
@@ -41,10 +44,24 @@ function fncAddProduct(){
 		alert("가격은 반드시 입력하셔야 합니다.");
 		return;
 	}
+	
+	if(brand==null || brand.length<1){
+		alert("브랜드는 반드시 선택해주셔야합니다.");
+		return;
+	}
 
+	if(count==null || count.length<1){
+		alert("재고수량을 입력해주세요.");
+		return;
+	}
+	
+	
 }
 <%--	document.detailForm.action='/product/addProduct';
 document.detailForm.submit();		--%>
+
+
+
 
 	$(function(){
 		
@@ -58,9 +75,9 @@ document.detailForm.submit();		--%>
 			$("form").attr("method","POST").attr("action", "/product/listProduct").submit();
 		});
 
-	});
 
-
+	}); //Jquery function end
+					
 <%--
 function resetData(){
 	document.detailForm.reset();
@@ -99,38 +116,48 @@ function resetData(){
 	</tr>
 	<tr>
 		<td width="104" class="ct_write">
-			상품명 <imgsrc="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle">
+			브랜드 <imgsrc="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle">
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td width="105">
-						<input type="text" name="prodName" class="ct_input_g" 
-									style="width: 100px; height: 19px" maxLength="20">
+				<select name="brandId" id="brand" class="ct_input_g" style="width: 100px; height: 19px" maxLength="10">
+					<option value="" selected>브랜드선택</option>
+					<option value="RAM">람보르기니</option>
+					<option value="BUG">부가티</option>
+					<option value="POR">포르쉐</option>
+					<option value="AST">애스턴마틴</option>	
+					<option value="JU">재규어</option>	
+					<option value="MAR">마세라티</option>	
+					<option value="KIA">기아</option>	
+					<option value="HYU">현대</option>
+				</select>
 					</td>
 				</tr>
 			</table>
 		</td>
 	</tr>
 	<tr>
+		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+	</tr>
+	<tr>
 		<td width="104" class="ct_write">
-			브랜드 <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
+			제품명 <img	src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
-			<select name="proBrand" class="ct_input_g" style="width: 100px; height: 19px" maxLength="10">
-				<option value="" selected>브랜드선택</option>
-				<option value="람보르기니">람보르기니</option>
-				<option value="부가티">부가티</option>
-				<option value="포르쉐">포르쉐</option>
-				<option value="폭스바겐">폭스바겐</option>	
-				<option value="현대자동차">현대자동차</option>	
-				<option value="기아자동차" >기아자동차</option>	
-				<option value="쉐보레">쉐보레</option>	
-			</select>
+			<input type="text" name="prodName" class="ct_input_g" 
+						style="width: 100px; height: 19px" maxLength="10" minLength="6"/>
 		</td>
 	</tr>
+	<tr>
+		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+	</tr>
+	
+
+
 	<tr>
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 	</tr>

@@ -17,24 +17,26 @@
 		<result property="regDate" 				column="reg_date" 				jdbcType="DATE" />
 		<result property="proTranCode" 			column="tran_status_code" 		jdbcType="VARCHAR" />
 		<result property="count" 			    column="count" 					jdbcType="NUMERIC" />
-		<result property="proBrand"			    column="prod_brand"				jdbcType="VARCHAR"/>
+		<result property="brandId"			    column="brand_Id"				jdbcType="VARCHAR"/>
 	</resultMap>
 	
 	<!-- SQL : INSERT -->
 	 <insert 	id="addProduct"		parameterType="product" >                       
 	 	INSERT  
-		INTO product(prod_no, prod_name, prod_detail, manufacture_day, price, image_file, reg_date, prod_brand, count) 
+		INTO product(prod_no, prod_name, prod_detail, manufacture_day, price, image_file, reg_date, brand_id, count) 
 		VALUES	 (seq_product_prod_no.nextval, #{prodName}, #{prodDetail}, TO_CHAR(TO_DATE(#{manuDate}, 'YYYY-MM-DD'), 'YYYYMMDD'), #{price}, 
-					#{fileName}, sysdate, #{proBrand}, #{count}
+					#{fileName}, sysdate, #{brandId}, #{count}
 			     )
 	 </insert>
   
  	<!-- SQL : SELECT ONE -->
 	 <select 	id="getProduct"	parameterType="int"	resultMap="productSelectMap">
-		SELECT
-		*	
-		FROM PRODUCT 
-		WHERE prod_no = #{value}
+		
+		SELECT 
+		b.brand_name, p.image_file, p.prod_name, p.prod_detail, p.price, p.manufacture_day, p.count, p.reg_date
+		FROM product p, brand b
+		WHERE p.brand_id = b.brand_id AND p.prod_no = #{value};
+
 	 </select>
 	 
  	 
@@ -43,7 +45,7 @@
 	   	UPDATE product
 	   	<set>
 	   		prod_name = #{prodName},
-	   		prod_brand = #{proBrand},
+	   		prod_brand = #{brandId},
 			prod_detail	= #{prodDetail},
 			price = #{price},
 			manufacture_day	= TO_CHAR(TO_DATE(#{manuDate}, 'YYYY-MM-DD'), 'YYYYMMDD'),

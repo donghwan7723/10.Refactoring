@@ -66,7 +66,7 @@
 				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 			</tr>
 			<tr>
-				<td width="104" class="ct_write">상품번호 <img
+				<td width="104" class="ct_write">브랜드 <img
 					src="/images/ct_icon_red.gif" width="3" height="3"
 					align="absmiddle" />
 				</td>
@@ -74,7 +74,7 @@
 				<td class="ct_write01">
 					<table width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
-							<td width="105">${product.prodNo}</td>
+							<td width="105">${product.brand.brandId}</td>
 						</tr>
 					</table>
 				</td>
@@ -142,6 +142,14 @@
 			<tr>
 				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 			</tr>
+			<tr>
+				<td width="104" class="ct_write">남은 수량</td>
+				<td bgcolor="D6D6D6" width="1"></td>
+				<td class="ct_write01">${product.count}</td>
+			</tr>
+			<tr>
+				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+			</tr>	
 		</table>
 
 		<table width="100%" border="0" cellspacing="0" cellpadding="0"

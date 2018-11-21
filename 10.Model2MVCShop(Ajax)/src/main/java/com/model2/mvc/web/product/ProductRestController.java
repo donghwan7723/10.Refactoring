@@ -38,6 +38,9 @@ public class ProductRestController {
 	@Value("#{commonProperties['pageSize']}")
 	int pageSize;
 	
+
+
+
 	@RequestMapping(value="json/addProduct", method=RequestMethod.POST)
 	public Map addProduct(@RequestBody Product product) throws Exception {
 		
