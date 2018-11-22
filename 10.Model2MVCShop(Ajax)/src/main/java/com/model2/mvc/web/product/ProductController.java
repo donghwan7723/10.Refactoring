@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.model2.mvc.common.Page;
 import com.model2.mvc.common.Search;
+import com.model2.mvc.service.domain.Brand;
 import com.model2.mvc.service.domain.Product;
 import com.model2.mvc.service.product.ProductService;
 
@@ -42,10 +43,15 @@ public class ProductController{
 		int pageSize;
 	
 	@RequestMapping(value = "addProduct", method=RequestMethod.POST)
-	public String addProduct (@ModelAttribute("product") Product product) throws Exception {
-				
+	public String addProduct (@ModelAttribute("product") Product product,
+							  @ModelAttribute("Brand") Brand brand) throws Exception {
+		
+		System.out.println(brand);
 		System.out.println(product);
 		System.out.println("여기는 productController addProduct");
+		
+		
+		
 		//Business Logic
 		productService.addProduct(product);
 
@@ -89,7 +95,7 @@ public class ProductController{
 		System.out.println("여기는 productController getProduct");
 		
 		product = productService.getProduct(product.getProdNo());
-		
+		System.out.println(product);
 		model.addAttribute("product", product);
 		
 		Cookie[] cookies = request.getCookies();

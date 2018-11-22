@@ -184,7 +184,7 @@
 			</c:if>
 			<c:if test="${trimTranCode=='0'}">
 		 <!--	<a href = "/product/getProduct?prodNo=${product.prodNo}&menu=search">${product.prodName}</a>   -->
-		 <span class="trancode" data-param2="${product.prodNo}"> ${product.prodName} </span>
+		 <span class="trancode" data-param2="${product.prodNo}"> ${product.prodName}</span>
 			</c:if>
 		</c:if>
 		</td>
