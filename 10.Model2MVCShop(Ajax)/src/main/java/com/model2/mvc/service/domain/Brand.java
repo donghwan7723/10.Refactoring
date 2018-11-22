@@ -5,7 +5,7 @@ package com.model2.mvc.service.domain;
 
 public class Brand {
  	//Field
-	private int brandId;	
+	private String brandId;	
 	private String brandName;
 
  	//constructor
@@ -13,11 +13,11 @@ public class Brand {
 	}
 	
 	//method
-	public int getBrandId() {
+	public String getBrandId() {
 		return brandId;
 	}
 
-	public void setBrandId(int brandId) {
+	public void setBrandId(String brandId) {
 		this.brandId = brandId;
 	}
 
@@ -29,7 +29,6 @@ public class Brand {
 		this.brandName = brandName;
 	}
 
-	@Override
 	public String toString() {
 		return "Brand [brandId=" + brandId + ", brandName=" + brandName + "]";
 	}	

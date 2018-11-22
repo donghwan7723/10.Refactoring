@@ -153,6 +153,8 @@
 	<tr>
 		<td class="ct_list_b" width="100">No</td>
 		<td class="ct_line02"></td>
+		<td class="ct_list_b" width="150">브랜드</td>
+		<td class="ct_line02"></td>		
 		<td class="ct_list_b" width="150">상품명</td>
 		<td class="ct_line02"></td>
 		<td class="ct_list_b" width="150">가격</td>
@@ -164,14 +166,16 @@
 	<tr>
 		<td colspan="11" bgcolor="808285" height="1"></td>
 	</tr>
-
+	
 	<c:set var="i" value="0"/>
 	<c:forEach var="product" items="${list}">
 	   <c:set var="trimTranCode" value="${fn:trim(product.proTranCode)}"/> 
-	   
-	   <c:set var="i" value="${i+1}" />
+ 	   <c:set var="i" value="${i+1}" /> 
 	   <tr class="ct_list_pop" data-param="${product.prodNo}" >
 		<td align="center">${i}</td>
+		<td></td>
+		<td align="left">
+		${product.brandIden.brandName}
 		<td></td>
 		<td align="left" >
 		<c:if test="${param.menu=='manage'}">

@@ -17,7 +17,8 @@
 		<result property="regDate" 				column="reg_date" 				jdbcType="DATE" />
 		<result property="proTranCode" 			column="tran_status_code" 		jdbcType="VARCHAR" />
 		<result property="count" 			    column="count" 					jdbcType="NUMERIC" />
-		<result property="brand.brandIden"	    column="brand_Id"				jdbcType="VARCHAR"/>
+		<result property="brandIden.brandId"    column="brand_Id"				jdbcType="VARCHAR"/>
+		<result property="brandIden.brandName"  column="brand_name"				jdbcType="VARCHAR"/>
 	</resultMap>
 	
 	<!-- SQL : INSERT -->
@@ -25,7 +26,7 @@
 	 	INSERT  
 		INTO product(prod_no, prod_name, prod_detail, manufacture_day, price, image_file, reg_date, brand_id, count) 
 		VALUES	 (seq_product_prod_no.nextval, #{prodName}, #{prodDetail}, TO_CHAR(TO_DATE(#{manuDate}, 'YYYY-MM-DD'), 'YYYYMMDD'), #{price}, 
-					#{fileName}, sysdate, #{brand.brandIden}, #{count}
+					#{fileName}, sysdate, #{brandIden.brandId}, #{count}
 			     )
 	 </insert>
   
@@ -35,7 +36,7 @@
 		SELECT 
 		b.brand_name, p.prod_name, p.image_file, p.prod_detail, p.price, p.manufacture_day, p.count, p.reg_date
 		FROM product p, brand b
-		WHERE p.brand_id = b.brand_id AND p.prod_no = #{value};
+		WHERE p.brand_id = b.brand_id AND p.prod_no = #{value}
 
 	 </select>
 	 
@@ -45,7 +46,6 @@
 	   	UPDATE product
 	   	<set>
 	   		prod_name = #{prodName},
-	   		prod_brand = #{brandId},
 			prod_detail	= #{prodDetail},
 			price = #{price},
 			manufacture_day	= TO_CHAR(TO_DATE(#{manuDate}, 'YYYY-MM-DD'), 'YYYYMMDD'),
@@ -63,10 +63,10 @@
 	<select  id="getProductList"  parameterType="search"	resultMap="productSelectMap">
 	  	SELECT *
 	  	FROM (	SELECT inner_table.*, ROWNUM AS row_seq
-	  					FROM		(	SELECT prd.prod_no, prd.prod_name, prd.price, prd.reg_date, 
+	  					FROM		(	SELECT  b.brand_name, prd.prod_no, prd.prod_name, prd.price, prd.reg_date, 
 	  										   NVL(tra.tran_status_code,'0') tran_status_code
-									    FROM product prd, transaction tra
-									    WHERE tra.prod_no(+) = prd.prod_no
+									    FROM product prd, transaction tra, brand b
+									    WHERE tra.prod_no(+) = prd.prod_no AND b.brand_id = prd.brand_id
 											<if test="searchCondition != null ">
 										
 													<if test="searchCondition == 0 and searchKeyword !='' ">
@@ -81,7 +81,7 @@
 													</if>
 
 											</if>
-		GROUP BY prd.prod_no, prd.prod_name, prd.price, prd.reg_date, tra.tran_status_code
+									 GROUP BY prd.prod_no, prd.prod_name, prd.price, prd.reg_date, tra.tran_status_code, b.brand_name
 			
 				<if test="sortCondition=='desc'">
 					ORDER BY prd.price DESC

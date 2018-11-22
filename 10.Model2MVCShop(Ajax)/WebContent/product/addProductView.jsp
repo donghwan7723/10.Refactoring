@@ -24,7 +24,7 @@ function fncAddProduct(){
 	var detail=$("input[name='prodDetail']").val();
 	var manuDate=$("input[name='manuDate']").val();
 	var price=$("input[name='price']").val();
-	var brand=$("#brand").val();
+	var brandId=$("#brandId").val();
 	var count=$("$input[name='count']").val();
 	
 	if(name == null || name.length<1){
@@ -45,7 +45,7 @@ function fncAddProduct(){
 		return;
 	}
 	
-	if(brand==null || brand.length<1){
+	if(brandId==null || brandId.length<1){
 		alert("브랜드는 반드시 선택해주셔야합니다.");
 		return;
 	}

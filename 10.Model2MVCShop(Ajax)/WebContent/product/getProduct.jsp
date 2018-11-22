@@ -74,7 +74,7 @@
 				<td class="ct_write01">
 					<table width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
-							<td width="105">${product.brand.brandId}</td>
+							<td width="105">${product.brandIden.brandName}</td>
 						</tr>
 					</table>
 				</td>

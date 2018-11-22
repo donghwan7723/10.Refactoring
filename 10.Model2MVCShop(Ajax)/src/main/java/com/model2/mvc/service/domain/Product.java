@@ -19,14 +19,15 @@ public class Product {
 	public Product(){
 	}
 	
-	
-	
+
 	public Brand getBrandIden() {
 		return brandIden;
 	}
-	public void setBrandId(Brand brandIden) {
+
+	public void setBrandIden(Brand brandIden) {
 		this.brandIden = brandIden;
 	}
+
 	public int getCount() {
 		return count;
 	}
@@ -86,7 +87,7 @@ public class Product {
 	public String toString() {
 		return "Product [fileName=" + fileName + ", manuDate=" + manuDate + ", price=" + price + ", prodDetail="
 				+ prodDetail + ", prodName=" + prodName + ", prodNo=" + prodNo + ", regDate=" + regDate
-				+ ", proTranCode=" + proTranCode + ", count=" + count + ", BrandId=" + brandIden + "]";
+				+ ", proTranCode=" + proTranCode + ", count=" + count + ", Brand=" + brandIden + "]";
 	}
 
 }

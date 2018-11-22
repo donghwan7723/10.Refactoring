@@ -44,14 +44,14 @@ public class ProductController{
 	
 	@RequestMapping(value = "addProduct", method=RequestMethod.POST)
 	public String addProduct (@ModelAttribute("product") Product product,
-							  @ModelAttribute("Brand") Brand brand) throws Exception {
+							  @ModelAttribute("brand") Brand brand
+							  ) throws Exception {
 		
 		System.out.println(brand);
 		System.out.println(product);
+		product.setBrandIden(brand);
 		System.out.println("여기는 productController addProduct");
-		
-		
-		
+				
 		//Business Logic
 		productService.addProduct(product);
 
@@ -89,12 +89,12 @@ public class ProductController{
 	}
 	
 		@RequestMapping(value="getProduct", method=RequestMethod.GET)
-		public String getProduct (@ModelAttribute("product") Product product, @RequestParam("prodNo") String prodNo, 
+		public String getProduct (@ModelAttribute("product") Product product, 
+								  @RequestParam("prodNo") String CookieprodNo, @RequestParam("prodNo") int prodNo,
 								  Model model, HttpServletRequest request, HttpServletResponse response) throws Exception{
 		
-		System.out.println("여기는 productController getProduct");
-		
-		product = productService.getProduct(product.getProdNo());
+		System.out.println("product 확인 : "+product);
+		product = productService.getProduct(prodNo);
 		System.out.println(product);
 		model.addAttribute("product", product);
 		
@@ -104,13 +104,13 @@ public class ProductController{
 		  for(int i=0;i<cookies.length;i++) {	
 			  Cookie cookie = cookies[i];
 			if(cookie.getName().equals("history")) {
-				cookie.setValue(cookie.getValue()+","+prodNo);
+				cookie.setValue(cookie.getValue()+","+CookieprodNo);
 				cookie.setPath("/");
 				cookie.setMaxAge(60*60);
 				response.addCookie(cookie);
 			}else{
 			System.out.println("Cookie 첫 생성");
-			cookie = new Cookie("history",prodNo);
+			cookie = new Cookie("history",CookieprodNo);
 			cookie.setMaxAge(60*60);
 			cookie.setPath("/");
 			response.addCookie(cookie);

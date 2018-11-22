@@ -120,14 +120,14 @@ function fncAddProduct(){
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
 			<select name="proBrand" class="ct_input_g" style="width: 100px; height: 19px" maxLength="10">
-				<option value="RAM" ${product.brandId=='람보르기니'? 'selected' : ''}>람보르기니</option>
-				<option value="BUG" ${product.brandId=='부가티'? 'selected' : ''}>부가티</option>
-				<option value="POR" ${product.brandId=='포르쉐'? 'selected' : ''}>포르쉐</option>
-				<option value="AST" ${product.brandId=='애스턴마틴'? 'selected' : ''}>폭스바겐</option>	
-				<option value="JU" ${product.brandId=='재규어'? 'selected' : ''}>현대자동차</option>	
-				<option value="MAR" ${product.brandId=='마세라티'? 'selected' : ''}>기아자동차</option>	
-				<option value="KIA" ${product.brandId=='기아'? 'selected' : ''}>쉐보레</option>	
-				<option value="HYU" ${product.brandId=='현대'? 'selected' : ''}>쉐보레</option>
+				<option value="RAM" ${product.brandIden.brandName =='람보르기니'? 'selected' : ''}>람보르기니</option>
+				<option value="BUG" ${product.brandIden.brandName =='부가티'? 'selected' : ''}>부가티</option>
+				<option value="POR" ${product.brandIden.brandName =='포르쉐'? 'selected' : ''}>포르쉐</option>
+				<option value="AST" ${product.brandIden.brandName =='애스턴마틴'? 'selected' : ''}>폭스바겐</option>	
+				<option value="JU" ${product.brandIden.brandName =='재규어'? 'selected' : ''}>현대자동차</option>	
+				<option value="MAR" ${product.brandIden.brandName =='마세라티'? 'selected' : ''}>기아자동차</option>	
+				<option value="KIA" ${product.brandIden.brandName =='기아'? 'selected' : ''}>쉐보레</option>	
+				<option value="HYU" ${product.brandIden.brandName =='현대'? 'selected' : ''}>쉐보레</option>
 			</select>
 		</td>
 	</tr>
