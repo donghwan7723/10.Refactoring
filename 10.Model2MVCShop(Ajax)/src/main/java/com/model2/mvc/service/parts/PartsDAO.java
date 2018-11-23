@@ -14,6 +14,6 @@ public interface PartsDAO {
 		public void addParts(Parts parts) throws Exception ;
 
 		// GET
-		public Parts getParts(String brandId, String brandName) throws Exception;
+		public Parts getParts(Parts parts) throws Exception;
 		
 }

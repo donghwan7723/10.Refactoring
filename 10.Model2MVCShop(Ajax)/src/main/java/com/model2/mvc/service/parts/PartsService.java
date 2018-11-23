@@ -10,5 +10,5 @@ public interface PartsService {
 
 	public void addParts(Parts parts) throws Exception;
 
-	public Parts getParts(String brandId, String partClass) throws Exception;
+	public Parts getParts(Parts parts) throws Exception;
 }

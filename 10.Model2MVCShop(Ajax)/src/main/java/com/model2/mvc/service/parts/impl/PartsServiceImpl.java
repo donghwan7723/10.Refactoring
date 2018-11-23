@@ -36,8 +36,7 @@ public class PartsServiceImpl implements PartsService{
 	}
 
 
-	public Map<String, Object> getParts(String brandId, String partClass) throws Exception {
-		
-		return null;
+	public Parts getParts(Parts parts) throws Exception {
+		return partsDao.getParts(parts);
 	}	
 }

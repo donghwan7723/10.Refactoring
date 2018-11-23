@@ -33,9 +33,8 @@ public class PartsDaoImpl implements PartsDAO{
 		sqlSession.insert("PartsMapper.addParts", parts);
 	}
 
-	public Parts getParts(String brandId, String brandName) throws Exception {
-		
-		return sqlSession.select("PartsMapper.getParts", brandId, brandName);
+	public Parts getParts(Parts parts) throws Exception {
+		return sqlSession.selectOne("PartsMapper.getParts", parts);
 	}
 
 

@@ -9,7 +9,7 @@ public class Parts {
 	private String partClass;
 	private String partName;
 	private int price;
-	private String carBrand;
+	private String brandIdentifyer;
 	
  	//constructor
 	public Parts() {
@@ -48,16 +48,16 @@ public class Parts {
 	}
 
 	public String getCarBrand() {
-		return carBrand;
+		return brandIdentifyer;
 	}
 
-	public void setCarBrand(String carBrand) {
-		this.carBrand = carBrand;
+	public void setCarBrand(String brandIdentifyer) {
+		this.brandIdentifyer = brandIdentifyer;
 	}
 
 	public String toString() {
 		return "Parts [partId=" + partId + ", partClass=" + partClass + ", partName=" + partName + ", price=" + price
-				+ ", carBrand=" + carBrand + "]";
+				+ ", brandIdentifyer=" + brandIdentifyer + "]";
 	}	
 
  	
