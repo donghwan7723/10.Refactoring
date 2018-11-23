@@ -56,6 +56,11 @@ public class ProductDaoImpl implements ProductDAO{
 		return sqlSession.selectOne("ProductMapper.getTotalCount",search);
 	}
 
+	
+	public void inventoryManage(int count) throws Exception {
+		sqlSession.update("ProductMapper.updateCount", count);
+	}
+
 
 
 

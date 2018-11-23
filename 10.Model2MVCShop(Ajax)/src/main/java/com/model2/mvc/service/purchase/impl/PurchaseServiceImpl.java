@@ -46,9 +46,9 @@ public class PurchaseServiceImpl implements PurchaseService{
 		System.out.println("PurchaseServiceImpl의 getPurchaseList 메서드 시작점 ....");
 		
 		List<Purchase> list= purchaseDao.getPurchaseList(search, buyerId);
-		System.out.println("1=====================================");
+		
 		int totalCount = purchaseDao.getTotalCount(buyerId);
-		System.out.println("2=====================================");
+
 		Map<String, Object> map = new HashMap<String, Object>();
 	
 		map.put("list", list);

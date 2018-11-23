@@ -1,5 +1,7 @@
 package com.model2.mvc.service.parts.impl;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -31,5 +33,11 @@ public class PartsServiceImpl implements PartsService{
 
 	public void addParts(Parts parts) throws Exception {
 		partsDao.addParts(parts);
+	}
+
+
+	public Map<String, Object> getParts(String brandId, String partClass) throws Exception {
+		
+		return null;
 	}	
 }

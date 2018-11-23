@@ -72,13 +72,13 @@
 	</tr>
 	<tr>
 		<td width="300" class="ct_write">
-			상품번호 <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
+			브랜드 <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01" width="299">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
-					<td width="105">${product.prodNo}</td>
+					<td width="105">${product.brandIden.brandName}</td>
 				</tr>
 			</table>
 		</td>

@@ -61,16 +61,19 @@ public class PurchaseController {
 	@RequestMapping(value = "addPurchase", method=RequestMethod.POST)
 	public ModelAndView addPurchase(@ModelAttribute("product") Product product, 
 									@ModelAttribute("purchase") Purchase purchase, HttpSession session) throws Exception{
+
 		User user = (User)session.getAttribute("user");
 		String tranCode = "1";
-		
-		System.out.println("µð¹ö±ë È®ÀÎ : "+user);
-		System.out.println(product);
 
+		System.out.println("addPurchase µð¹ö±ëÈ®ÀÎ :"+product);
+
+		
 		purchase.setPurchaseProd(product);
 		purchase.setBuyer(user);
 		purchase.setTranCode(tranCode);
-			
+		
+		
+		System.out.println(purchase);
 		purchaseService.addPurchase(purchase);
 
 		String viewName = "/purchase/addPurchase.jsp";

@@ -9,7 +9,62 @@
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script type="text/javascript">
 
-	$(function(){
+
+function fncSelect(){
+
+	  $(function(){	
+		
+		
+		$("select[name=partClass]").bind("click", function(){
+			
+				var brandId = $("input:hidden").val();
+				console.log(brandId);
+				var partClass = $(this).val();	
+				console.log(partClass);
+
+		  $.ajax(
+				  {
+					  url:"/parts/json/getParts/"+brandId+"/"+partClass ,
+					  method:"GET",
+					  dataType: "json",
+					  headers : {
+							"Accept" : "application/json",
+							"Content-Type" : "application/json"
+					  },
+					 success : function(JSONData, status){
+						 
+						var selectValue = 
+											for()
+											if(partClass=='ENGINE')"<option value="+    ">"
+													+"</option>"
+					 }
+				  }
+				  //<option value="ENGINE" >ENGINE</option>
+/* 			$.ajax("parts/getPartName?partClass="+partClass+"&",
+					{
+						partClass : partClass
+					}
+			
+			
+			
+			
+				if(partClass=='ENGINE'){
+
+				}else if(partClass=='WHEEL'){
+
+				}else if(partClass=='TIRE'){
+	
+		
+				} */
+				
+		});//select end
+
+		});//jquery end		
+		
+}//javascript end		
+
+
+$(function(){
 
 		//확인 button
 		$(".ct_btn01:contains('확인')").on("click", function(){
@@ -26,9 +81,12 @@
 			history.go(-1);
 		
 		});
+		
+});//end of jquery 	
+
+
+
 	
-	
-	});
 
 </script>
 
@@ -40,7 +98,8 @@
 <body bgcolor="#ffffff" text="#000000">
 
 	<form name="detailForm" >
-
+	
+	<input type="hidden" name="brandId" value="${product.brandIden.brandId}"/>
 		<table width="100%" height="37" border="0" cellpadding="0"
 			cellspacing="0">
 			<tr>
@@ -130,6 +189,25 @@
 				<td width="104" class="ct_write">가격</td>
 				<td bgcolor="D6D6D6" width="1"></td>
 				<td class="ct_write01">${product.price}</td>
+			</tr>
+			<tr>
+				<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+			</tr>			
+			<tr>			
+				<td width="104" class="ct_write">부품옵션</td>
+				<td bgcolor="D6D6D6" width="1"></td>
+				<td class="ct_write01">
+					<select name="partClass" class="ct_input_g" style="width: 100px; height: 19px" maxLength="10" onchange="fncSelect()">
+						<option value="">분류</option>
+						<option value="ENGINE" >ENGINE</option>
+						<option value="TIRE" >TIRE</option>
+						<option value="WHEEL" >WHEEL</option>
+					</select>
+					
+					<select name="" class="ct_input_g" style="width: 100px; height: 19px" maxLength="10">
+						<option value="" selected>부품선택</option>
+					</select>					
+				</td>
 			</tr>
 			<tr>
 				<td height="1" colspan="3" bgcolor="D6D6D6"></td>

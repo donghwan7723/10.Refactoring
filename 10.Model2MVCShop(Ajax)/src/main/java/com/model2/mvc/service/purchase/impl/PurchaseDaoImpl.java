@@ -34,7 +34,7 @@ public class PurchaseDaoImpl implements PurchaseDAO{
 	
 	public Purchase findPurchase(int tranNo) throws Exception {
 		System.out.println("PurchaseDaoImpl의 findPurchase 메서드 Come in......"+tranNo);
-		return sqlSession.selectOne("PurchaseMapper.findPurchase", tranNo);
+		return sqlSession.selectOne("PurchaseMapper.getPurchase", tranNo);
 	}
 
 	

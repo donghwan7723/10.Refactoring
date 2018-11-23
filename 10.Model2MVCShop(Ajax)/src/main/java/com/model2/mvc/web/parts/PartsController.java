@@ -6,12 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.portlet.ModelAndView;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.model2.mvc.service.domain.Parts;
 import com.model2.mvc.service.parts.PartsService;
@@ -47,11 +45,10 @@ public class PartsController{
 		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName(viewName);
-		modelAndView.addObject("parts", parts);
-	//	model.addAttribute("parts", parts);		
-
+		modelAndView.addObject(parts);
+	
 		return modelAndView;
-		//"forward:/parts/addParts.jsp"
+		
 	}
 
 

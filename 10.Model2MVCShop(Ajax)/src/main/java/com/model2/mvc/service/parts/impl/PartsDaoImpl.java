@@ -1,5 +1,7 @@
 package com.model2.mvc.service.parts.impl;
 
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -29,6 +31,11 @@ public class PartsDaoImpl implements PartsDAO{
 	
 	public void addParts(Parts parts) throws Exception {
 		sqlSession.insert("PartsMapper.addParts", parts);
+	}
+
+	public Parts getParts(String brandId, String brandName) throws Exception {
+		
+		return sqlSession.select("PartsMapper.getParts", brandId, brandName);
 	}
 
 

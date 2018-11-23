@@ -41,9 +41,11 @@
 			
 			//getProduct 실행
 			$(".trancode").bind("click",function(){
+				 var brandId = $(this).data("brandName");
+				 console.log(brandId);
 				 var prodNo = $(this).data("param2");
 				 console.log(prodNo);
-				 self.location="/product/getProduct?prodNo="+prodNo+"&menu=search"
+				 self.location="/product/getProduct?prodNo="+prodNo+"&menu=search&brandId="+brandId
 			});
 			
 			//배송하기 event
@@ -162,6 +164,7 @@
 		<td class="ct_list_b">등록일</td>	
 		<td class="ct_line02"></td>
 		<td class="ct_list_b">현재상태</td>	
+		<td class="ct_line02"></td>
 	</tr>
 	<tr>
 		<td colspan="11" bgcolor="808285" height="1"></td>
@@ -174,7 +177,7 @@
 	   <tr class="ct_list_pop" data-param="${product.prodNo}" >
 		<td align="center">${i}</td>
 		<td></td>
-		<td align="left">
+		<td align="left" data-brandName="${product.brandIden.brandName}">
 		${product.brandIden.brandName}
 		<td></td>
 		<td align="left" >

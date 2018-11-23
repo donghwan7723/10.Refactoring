@@ -97,15 +97,19 @@ function resetData(){
 	</tr>
 	<tr>
 		<td width="104" class="ct_write">
-			부품명 <imgsrc="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle">
+			부품종류 <imgsrc="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle">
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td width="105">
-						<input type="text" name="partName" class="ct_input_g" 
-									style="width: 100px; height: 19px" maxLength="20">
+				<select name="partClass"  class="ct_input_g" style="width: 100px; height: 19px" maxLength="10">
+					<option value="" selected>부품선택</option>
+					<option value="ENGINE">ENGINE</option>
+					<option value="WHEEL">WHEEL</option>
+					<option vlaue="TIRE">TIRE</option>
+				</select>
 					</td>
 				</tr>
 			</table>
@@ -116,12 +120,34 @@ function resetData(){
 	</tr>
 	<tr>
 		<td width="104" class="ct_write">
-			브랜드 <img	src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
+			브랜드<img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
-			<input type="text" name="brand" class="ct_input_g" 
-						style="width: 100px; height: 19px" maxLength="10" minLength="6"/>
+		<select name="carBrand" id="brand" class="ct_input_g" style="width: 100px; height: 19px" maxLength="10">
+					<option value="" selected>브랜드선택</option>
+					<option value="RAM">람보르기니</option>
+					<option value="BUG">부가티</option>
+					<option value="POR">포르쉐</option>
+					<option value="AST">애스턴마틴</option>	
+					<option value="JU">재규어</option>	
+					<option value="MAR">마세라티</option>	
+					<option value="KIA">기아</option>	
+					<option value="HYU">현대</option>
+				</select>
+		</td>
+	</tr>
+	<tr>
+		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+	</tr>	
+	<tr>
+		<td width="104" class="ct_write">
+			부품명 <img	src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
+		</td>
+		<td bgcolor="D6D6D6" width="1"></td>
+		<td class="ct_write01">
+			<input type="text" name="partName" class="ct_input_g" 
+				style="width: 100px; height: 19px" maxLength="10" minLength="6"/>
 		</td>
 	</tr>
 	<tr>
@@ -129,12 +155,12 @@ function resetData(){
 	</tr>
 	<tr>
 		<td width="104" class="ct_write">
-			재고수량 <img	src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
+			가격 <img	src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
-			<input type="text" name="partCode" class="ct_input_g" 
-						style="width: 100px; height: 19px" maxLength="10" minLength="6"/>
+			<input type="text" name="price" class="ct_input_g" 
+						style="width: 100px; height: 19px" maxLength="10" minLength="6"/>&nbsp;원
 		</td>
 	</tr>
 	<tr>
@@ -142,53 +168,6 @@ function resetData(){
 	</tr>
 	<tr>
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
-	</tr>
-	<tr>
-		<td width="104" class="ct_write">
-			차량호환코드<img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
-		</td>
-		<td bgcolor="D6D6D6" width="1"></td>
-		<td class="ct_write01">
-			<input type="text" name="prodNo" 	class="ct_input_g" 
-						style="width: 100px; height: 19px" maxLength="10">
-		</td>
-	</tr>
-	<tr>
-		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
-	</tr>
-	<tr>
-		<td width="104" class="ct_write">
-			가격 <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
-		</td>
-		<td bgcolor="D6D6D6" width="1"></td>
-		<td class="ct_write01">
-			<input type="text" name="partPrice" 	class="ct_input_g" 
-						style="width: 100px; height: 19px" maxLength="10">&nbsp;원
-		</td>
-	</tr>
-	<tr>
-		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
-	</tr>
-	<tr>
-		<td width="104" class="ct_write">
-			재고 <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
-		</td>
-		<td bgcolor="D6D6D6" width="1"></td>
-		<td class="ct_write01">
-			<input type="text" name="partPrice" 	class="ct_input_g" 
-						style="width: 100px; height: 19px" maxLength="10">
-		</td>
-	</tr>
-	<tr>
-		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
-	</tr>
-	<tr>
-		<td width="104" class="ct_write">상품이미지</td>
-		<td bgcolor="D6D6D6" width="1"></td>
-		<td class="ct_write01">
-			<input		type="text" name="fileName" class="ct_input_g" 
-							style="width: 200px; height: 19px" maxLength="13"/>
-		</td>
 	</tr>
 
 </table>

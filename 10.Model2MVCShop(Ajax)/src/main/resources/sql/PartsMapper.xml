@@ -8,21 +8,17 @@
  	
  	
 	<resultMap id="partsSelectMap" type="parts">
-		<result property="partCode" 			column="part_code" 			jdbcType="NUMERIC"/>
-		<result property="brand"				column="prod_brand" 		jdbcType="VARCHAR" />
+		<result property="partId" 				column="part_id" 			jdbcType="NUMERIC"/>
+		<result property="partClass"			column="part_class" 		jdbcType="VARCHAR" />
 		<result property="partName" 			column="part_name" 			jdbcType="VARCHAR" />
-		<result property="prodNo" 				column="prod_no" 			jdbcType="NUMERIC" />
-		<result property="partPrice" 			column="part_price" 		jdbcType="NUMERIC" />
-		<result property="count"				column="COUNT"  			jdbcType="NUMERIC"/>
-		<result property="fileName"		     	column="IMAGE_FILE"  		jdbcType="VARCHAR"/>
+		<result property="price" 				column="price" 			    jdbcType="NUMERIC" />
+		<result property="carBrand" 			column="brand_id" 		    jdbcType="VARCHAR" />
 	</resultMap>
 	
 	<!-- SQL : INSERT -->
 	 <insert 	id="addParts"		parameterType="parts" >                       
-	 	INSERT  
-		INTO parts(part_code, brand, part_name, part_price, count, image_file) 
-		VALUES	 ( seq_parts_partsCode.nextval,  #{brand}, #{partName}, #{partPrice}  
-				   , #{count}, #{fileName})
+		INSERT INTO parts
+		values(seq_parts_part_id.nextval, #{partClass}, #{partName}, #{price}, #{carBrand})
 	 </insert>
   
  

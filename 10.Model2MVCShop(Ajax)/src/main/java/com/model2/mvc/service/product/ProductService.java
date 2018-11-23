@@ -15,5 +15,5 @@ public interface ProductService {
 
 	public void updateProduct(Product product) throws Exception;
 	
-	
+	public void inventoryManage(int count) throws Exception;
 }

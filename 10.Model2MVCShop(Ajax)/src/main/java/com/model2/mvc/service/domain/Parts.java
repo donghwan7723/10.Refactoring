@@ -5,78 +5,61 @@ package com.model2.mvc.service.domain;
 
 public class Parts {
  	//Field
-	private int partCode;	
-	private String brand;
+	private int partId;	
+	private String partClass;
 	private String partName;
-	private int prodNo;
-	private int partPrice;
-	private int count;	//Àç°í
-	private String fileName;
-	
-	
-	
+	private int price;
+	private String carBrand;
 	
  	//constructor
 	public Parts() {
-	}	
-	
-	//method
- 	public int getPartCode() {
-		return partCode;
 	}
 
-	public void setPartCode(int partCode) {
-		this.partCode = partCode;
-	}
-	
- 	public int getCount() {
-		return count;
+	public int getPartId() {
+		return partId;
 	}
 
-	public void setCount(int count) {
-		this.count = count;
+	public void setPartId(int partId) {
+		this.partId = partId;
 	}
 
-	public String getFileName() {
-		return fileName;
+	public String getPartClass() {
+		return partClass;
 	}
 
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
+	public void setPartClass(String partClass) {
+		this.partClass = partClass;
 	}
 
-	public void setBrand(String brand) {
-		this.brand = brand;
-	}
-
- 	public String getBrand() {
-		return brand;
-	}
- 	public void setCarBrand(String brand) {
-		this.brand = brand;
-	}
- 	public String getPartName() {
+	public String getPartName() {
 		return partName;
 	}
- 	public void setPartName(String partName) {
+
+	public void setPartName(String partName) {
 		this.partName = partName;
 	}
- 	public int getProdNo() {
-		return prodNo;
+
+	public int getPrice() {
+		return price;
 	}
- 	public void setProdNo(int prodNo) {
-		this.prodNo = prodNo;
+
+	public void setPrice(int price) {
+		this.price = price;
 	}
- 	public int getPartPrice() {
-		return partPrice;
+
+	public String getCarBrand() {
+		return carBrand;
 	}
- 	public void setPartPrice(int partPrice) {
-		this.partPrice = partPrice;
+
+	public void setCarBrand(String carBrand) {
+		this.carBrand = carBrand;
 	}
- 	public String toString() {
-		return "Parts [ carBrand=" + brand + ", partName=" + partName + ", prodNo="
-				+ prodNo + ", partPrice=" + partPrice + "]";
-	}
+
+	public String toString() {
+		return "Parts [partId=" + partId + ", partClass=" + partClass + ", partName=" + partName + ", price=" + price
+				+ ", carBrand=" + carBrand + "]";
+	}	
+
  	
 	
 }

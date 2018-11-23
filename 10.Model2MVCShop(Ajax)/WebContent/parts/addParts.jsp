@@ -17,7 +17,7 @@ $(function(){
 	});
 
 	$("td.ct_btn01:contains('추가등록')").on("click", function(){
-			self.location = "../parts/addPartsView.jsp"
+			self.location = "/parts/addPartsView.jsp"
 	});
 
 });
@@ -54,13 +54,13 @@ $(function(){
 	</tr>
 	<tr>
 		<td width="104" class="ct_write">
-			 부품명 <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
+			 부품종류 <img src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
 		<td class="ct_write01">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
-					<td width="105">${parts.partName}</td>
+					<td width="105">${parts.partClass}</td>
 					<td></td>
 				</tr>
 			</table>
@@ -75,39 +75,28 @@ $(function(){
 			브랜드 <img  src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
-		<td class="ct_write01">${parts.brand}</td>
+		<td class="ct_write01">${parts.carBrand}</td>
 	</tr>
 	<tr>
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
 	</tr>
 	<tr>
 		<td width="104" class="ct_write">
-			부품코드<img 	src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
+			부품명<img 	src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
-		<td class="ct_write01">${parts.partCode}</td>
+		<td class="ct_write01">${parts.partName}</td>
 	</tr>
 
 	<tr>
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
-	</tr>
-	<tr>
-		<td width="104" class="ct_write">
-			차량호환코드<img 	src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
-		</td>
-		<td bgcolor="D6D6D6" width="1"></td>
-		<td class="ct_write01">${parts.prodNo}</td>
 	</tr>
 	<tr>
 		<td width="104" class="ct_write">
 			가격<img 	src="/images/ct_icon_red.gif" width="3" height="3" align="absmiddle"/>
 		</td>
 		<td bgcolor="D6D6D6" width="1"></td>
-		<td class="ct_write01">${parts.partPrice}</td>
-	</tr>
-
-	<tr>
-		<td height="1" colspan="3" bgcolor="D6D6D6"></td>
+		<td class="ct_write01">${parts.price}</td>
 	</tr>
 	<tr>
 		<td height="1" colspan="3" bgcolor="D6D6D6"></td>

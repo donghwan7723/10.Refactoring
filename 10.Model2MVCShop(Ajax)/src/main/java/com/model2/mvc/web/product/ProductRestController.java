@@ -56,7 +56,8 @@ public class ProductRestController {
 	}
 	
 	@RequestMapping(value="json/getProduct/{prodNo}", method=RequestMethod.GET)
-	public Product getProduct(@PathVariable int prodNo) throws Exception {
+	public Product getProduct(@PathVariable int prodNo, @RequestParam String brandId) throws Exception {
+		
 		
 		System.out.println("getProduct");
 		

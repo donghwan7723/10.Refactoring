@@ -70,7 +70,6 @@ public class ProductController{
 		}
 		search.setPageSize(pageSize);
 	
-
 		
 		//Business Logic 수행
 		Map<String, Object> map = productService.getProductList(search);
@@ -93,7 +92,7 @@ public class ProductController{
 								  @RequestParam("prodNo") String CookieprodNo, @RequestParam("prodNo") int prodNo,
 								  Model model, HttpServletRequest request, HttpServletResponse response) throws Exception{
 		
-		System.out.println("product 확인 : "+product);
+
 		product = productService.getProduct(prodNo);
 		System.out.println(product);
 		model.addAttribute("product", product);
@@ -135,11 +134,12 @@ public class ProductController{
 		}
 		
 		@RequestMapping(value="updateProduct", method=RequestMethod.POST)
-		public String updateProduct(@ModelAttribute("product") Product product, 
+		public String updateProduct(@ModelAttribute("product") Product product, @ModelAttribute("brand") Brand brand,
 									@RequestParam("menu") String menu) throws Exception {
 			
 			System.out.println("여기는 productController updateProduct");
 			
+			product.setBrandIden(brand);
 			System.out.println("디버깅용"+product);
 			System.out.println("디버깅용"+menu);
 					
@@ -149,6 +149,11 @@ public class ProductController{
 			return "redirect:/product/getProduct?prodNo="+product.getProdNo()+"&menu="+menu;
 		}
 		
+		@RequestMapping(value="inventoryManage", method=RequestMethod.GET)
+		public void inventoryManage(@RequestParam int count) throws Exception{
+			
+		
+		}
 
 
 

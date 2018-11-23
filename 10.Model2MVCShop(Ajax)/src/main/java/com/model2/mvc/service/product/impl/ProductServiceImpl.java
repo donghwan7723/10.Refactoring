@@ -63,6 +63,11 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 
+	public void inventoryManage(int count) throws Exception {
+		
+	}
+
+
 
 
 	

@@ -34,7 +34,7 @@
 	 <select 	id="getProduct"	parameterType="int"	resultMap="productSelectMap">
 		
 		SELECT 
-		b.brand_name, p.prod_name, p.image_file, p.prod_detail, p.price, p.manufacture_day, p.count, p.reg_date
+		b.brand_name, p.prod_name, p.image_file, p.prod_detail, p.price, p.manufacture_day, p.count, p.reg_date, p.prod_no, p.brand_id
 		FROM product p, brand b
 		WHERE p.brand_id = b.brand_id AND p.prod_no = #{value}
 
@@ -49,6 +49,7 @@
 			prod_detail	= #{prodDetail},
 			price = #{price},
 			manufacture_day	= TO_CHAR(TO_DATE(#{manuDate}, 'YYYY-MM-DD'), 'YYYYMMDD'),
+			brand_id = #{brandIden.brandId},
 			count = #{count},
 			image_file = #{fileName}
 	   	</set>
@@ -63,7 +64,7 @@
 	<select  id="getProductList"  parameterType="search"	resultMap="productSelectMap">
 	  	SELECT *
 	  	FROM (	SELECT inner_table.*, ROWNUM AS row_seq
-	  					FROM		(	SELECT  b.brand_name, prd.prod_no, prd.prod_name, prd.price, prd.reg_date, 
+	  					FROM		(	SELECT  b.brand_name, prd.prod_no, prd.prod_name, prd.price, prd.reg_date, prd.brand_id,
 	  										   NVL(tra.tran_status_code,'0') tran_status_code
 									    FROM product prd, transaction tra, brand b
 									    WHERE tra.prod_no(+) = prd.prod_no AND b.brand_id = prd.brand_id
@@ -81,7 +82,7 @@
 													</if>
 
 											</if>
-									 GROUP BY prd.prod_no, prd.prod_name, prd.price, prd.reg_date, tra.tran_status_code, b.brand_name
+									 GROUP BY prd.prod_no, prd.prod_name, prd.price, prd.reg_date, tra.tran_status_code, b.brand_name, prd.brand_id
 			
 				<if test="sortCondition=='desc'">
 					ORDER BY prd.price DESC
@@ -120,5 +121,6 @@
 				</if>
 				) countTable									
 	 </select>
+	  
 	  
 </mapper>
